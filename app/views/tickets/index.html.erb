@@ -1,0 +1,29 @@
+<h1>All Ticket</h1>
+<%= link_to 'New Ticket', new_ticket_path %>
+<table>
+	<thead>
+		<tr>
+			<th>Arrival time</th>
+			<th>Departure time</th>
+			<th>Ticket number</th>
+			<th>Spot</th>
+			<th>Car</th>
+			<th colspan="4">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @tickets.each do |ticket| %>
+			<tr>
+				<td><%= ticket.time_arrival %></td>
+				<td><%= ticket.time_departure %></td>
+				<td><%= ticket.ticket_number %></td>
+				<td><%= ticket.spot.name %></td>
+				<td><%= ticket.car.registration_number %></td>
+				<td><%= link_to 'View', ticket %></td>
+				<td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+				<td><%= link_to 'Delete', ticket, data: { "turbo-method": :delete } %></td>
+				<td><%= link_to 'CheckOut', checkout_ticket_path(ticket), data: { "turbo-method": :put } %></td>		
+			</tr>
+		<% end %>
+	</tbody>
+</table>

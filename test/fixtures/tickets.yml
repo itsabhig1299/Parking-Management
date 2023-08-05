@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time_arrival: 2023-08-03 22:55:52
+  time_departure: 2023-08-03 22:55:52
+  ticket_number: MyString
+  spot: one
+  car: one
+
+two:
+  time_arrival: 2023-08-03 22:55:52
+  time_departure: 2023-08-03 22:55:52
+  ticket_number: MyString
+  spot: two
+  car: two

@@ -1,0 +1,26 @@
+<h1>spot list</h1>
+<%= link_to 'New Spot', new_spot_path %>
+<table>
+	<thead>
+		<tr>
+			<th>Spot Name</th>
+			<th>Nearest entry</th>
+			<th>Occupied</th>
+			<th>Parking</th>
+			<th colspan="3">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @spots.each do |spot| %>
+			<tr>
+				<td><%= spot.name %></td>
+				<td><%= spot.nearest_entry %></td>
+				<td><%= spot.occupied %></td>
+				<td><%= spot.parking.name %></td>
+				<td><%= link_to 'View', spot %></td>
+				<td><%= link_to 'Edit', edit_spot_path(spot) %></td>
+				<td><%= link_to 'Delete', spot, data: { "turbo-method": :delete } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

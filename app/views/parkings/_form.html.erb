@@ -1,0 +1,18 @@
+<%= form_with model: parking do |form| %>
+
+	<% if @parking.errors.any? %>
+		<% @parking.errors.full_messages.each do |message| %>
+			<p><%= message %></p>
+		<% end %>
+	<% end %>
+
+	<div>
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+	</div>
+
+	<div>
+		<%= form.submit %>
+	</div>
+	
+<% end %>

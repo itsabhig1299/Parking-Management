@@ -1,0 +1,26 @@
+<%= form_with model: spot do |form| %>
+
+	<% if @spot.errors.any? %>
+		<% @spot.errors.full_messages.each do |message| %>
+			<p><%= message %></p>
+		<% end %>
+	<% end %>
+
+	<div>
+		<%= form.label :parking_id %>
+		<%= form.collection_select :parking_id, Parking.order(:name), :id, :name, include_blank: true %>
+	</div><br>
+
+	<div>
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+	</div><br>
+	<div>
+		<%= form.label :nearest_entry %>
+		<%= form.number_field :nearest_entry %>
+	</div><br>
+	<div>
+		<%= form.submit %>
+	</div>
+	
+<% end %>

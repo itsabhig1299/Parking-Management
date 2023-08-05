@@ -1,0 +1,10 @@
+<h1>spot details</h1>
+
+<p><strong>Spot Name: </strong><%= @spot.name %></p><br>
+<p><strong>Nearest Entry: </strong><%= @spot.nearest_entry %></p><br>
+<p><strong>Oppuied: </strong><%= @spot.occupied %></p><br>
+<p><strong>Parking Name: </strong><%= @spot.parking_id %></p><br>
+
+
+
+<%= link_to 'Back', spots_path %> | <td><%= link_to 'Edit', edit_spot_path(@spot) %></td>

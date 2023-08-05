@@ -1,0 +1,42 @@
+<%= form_with scope: ticket, url: tickets_path do |form| %>
+
+	<% if @ticket.errors.any? %>
+		<% @ticket.errors.full_messages.each do |message| %>
+			<p><%= message %></p>
+		<% end %>
+	<% end %>
+
+	<!-- <div> -->
+		<%#= form.label :time_arrival %>
+		<%#= form.text_field :time_arrival %>
+	<!-- </div><br> 
+	<div> -->
+		<%#= form.label :time_departure %>
+		<%#= form.text_field :time_departure %>
+	<!-- </div><br>  -->
+	<!-- <div>  --><!--
+		<%#= form.label :ticket_number %>
+		<%#= form.text_field :ticket_number %>
+	</div><br> -->
+	<div>
+		<%= form.label :parking %>
+		<%= form.select :parking, parking_options, include_blank: false, required: true %>
+	</div><br> 
+	<div>
+		<%= form.label :registration_number %>
+		<%= form.collection_select :car_id, Car.not_in_parking.order(:name), :id, :registration_number, prompt: 'Select Registration No', required: true %>
+	</div><br>
+<!-- 	<div>
+		<%#= form.label :car_id %>
+		<%#= form.text_field :car_id %>
+	</div><br>
+	<div>
+		<%#= form.label :spot_id %>
+		<%#= form.text_field :spot_id %>
+	</div><br>  -->
+
+	<div>
+		<%= form.submit %>
+	</div>
+	
+<% end %>
